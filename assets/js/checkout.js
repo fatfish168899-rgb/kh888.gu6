@@ -137,7 +137,9 @@ const BANK_COLORS = {
     'BAKONG': '#ED1C24',
     'CANADIA': '#c41230',
     'TRUEMONEY': '#ff8200',
-    'PIPAY': '#e20074'
+    'PIPAY': '#7d2a90',
+    'AMK': '#f58220',
+    'AMRET': '#0082c1'
 };
 
 // [V34.0 NEW] 跨行隐私与 [BAKONG] 通用 Logo 路由逻辑
@@ -155,6 +157,8 @@ window.syncCrossBankUI = function (entrance, actual, khqr) {
         if (s.includes('CANADIA')) return 'CANADIA';
         if (s.includes('TRUEMONEY')) return 'TRUEMONEY';
         if (s.includes('PIPAY')) return 'PIPAY';
+        if (s.includes('AMK')) return 'AMK';
+        if (s.includes('AMRET')) return 'AMRET';
         return s;
     };
 
@@ -468,6 +472,8 @@ window.renderQrCode = function (qrData, bankName) {
         else if (cleanBankName.includes("CANADIA")) logoPath = "assets/img/bank_logo/Canadia_logo.png";
         else if (cleanBankName.includes("TRUEMONEY")) logoPath = "assets/img/bank_logo/TrueMoney_logo.png";
         else if (cleanBankName.includes("PIPAY")) logoPath = "assets/img/bank_logo/Pipay_logo.png";
+        else if (cleanBankName.includes("AMK")) logoPath = "assets/img/bank_logo/Amk_logo.png";
+        else if (cleanBankName.includes("AMRET")) logoPath = "assets/img/bank_logo/Amret_logo.png";
 
         if (logoPath) {
             logo.src = logoPath;
@@ -551,6 +557,8 @@ async function generateFancyCanvas(qrSource, bankName, orderNo) {
         else if (cleanBankName.includes("CANADIA")) logoPath = "assets/img/bank_logo/Canadia_logo.png";
         else if (cleanBankName.includes("TRUEMONEY")) logoPath = "assets/img/bank_logo/TrueMoney_logo.png";
         else if (cleanBankName.includes("PIPAY")) logoPath = "assets/img/bank_logo/Pipay_logo.png";
+        else if (cleanBankName.includes("AMK")) logoPath = "assets/img/bank_logo/Amk_logo.png";
+        else if (cleanBankName.includes("AMRET")) logoPath = "assets/img/bank_logo/Amret_logo.png";
 
         if (logoPath) {
             logo.src = logoPath;
