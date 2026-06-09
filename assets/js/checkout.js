@@ -139,7 +139,14 @@ const BANK_COLORS = {
     'TRUEMONEY': '#ff8200',
     'PIPAY': '#7d2a90',
     'AMK': '#f58220',
-    'AMRET': '#0082c1'
+    'AMRET': '#0082c1',
+    'BKB': '#15224e',
+    'BKBBANK': '#15224e',
+    'SATHAPANA': '#0c326f',
+    'PHILLIP': '#0a3d62',
+    'HATTHA': '#0067b1',
+    'E-MONEY': '#d71920',
+    'EMONEY': '#d71920'
 };
 
 // [V34.0 NEW] 跨行隐私与 [BAKONG] 通用 Logo 路由逻辑
@@ -159,6 +166,11 @@ window.syncCrossBankUI = function (entrance, actual, khqr) {
         if (s.includes('PIPAY')) return 'PIPAY';
         if (s.includes('AMK')) return 'AMK';
         if (s.includes('AMRET')) return 'AMRET';
+        if (s.includes('BKB') || s.includes('BRED')) return 'BKB';
+        if (s.includes('SATHAPANA')) return 'SATHAPANA';
+        if (s.includes('PHILLIP')) return 'PHILLIP';
+        if (s.includes('HATTHA')) return 'HATTHA';
+        if (s.includes('E-MONEY') || s.includes('EMONEY')) return 'EMONEY';
         return s;
     };
 
@@ -474,6 +486,11 @@ window.renderQrCode = function (qrData, bankName) {
         else if (cleanBankName.includes("PIPAY")) logoPath = "assets/img/bank_logo/Pipay_logo.png";
         else if (cleanBankName.includes("AMK")) logoPath = "assets/img/bank_logo/Amk_logo.png";
         else if (cleanBankName.includes("AMRET")) logoPath = "assets/img/bank_logo/Amret_logo.png";
+        else if (cleanBankName.includes("BKB")) logoPath = "assets/img/bank_logo/bkb_logo.png";
+        else if (cleanBankName.includes("SATHAPANA")) logoPath = "assets/img/bank_logo/sathapana_logo.png";
+        else if (cleanBankName.includes("PHILLIP")) logoPath = "assets/img/bank_logo/phillip_logo.png";
+        else if (cleanBankName.includes("HATTHA")) logoPath = "assets/img/bank_logo/hattha_logo.png";
+        else if (cleanBankName.includes("E-MONEY") || cleanBankName.includes("EMONEY")) logoPath = "assets/img/bank_logo/emoney_logo.png";
 
         if (logoPath) {
             logo.src = logoPath;
@@ -559,6 +576,11 @@ async function generateFancyCanvas(qrSource, bankName, orderNo) {
         else if (cleanBankName.includes("PIPAY")) logoPath = "assets/img/bank_logo/Pipay_logo.png";
         else if (cleanBankName.includes("AMK")) logoPath = "assets/img/bank_logo/Amk_logo.png";
         else if (cleanBankName.includes("AMRET")) logoPath = "assets/img/bank_logo/Amret_logo.png";
+        else if (cleanBankName.includes("BKB")) logoPath = "assets/img/bank_logo/bkb_logo.png";
+        else if (cleanBankName.includes("SATHAPANA")) logoPath = "assets/img/bank_logo/sathapana_logo.png";
+        else if (cleanBankName.includes("PHILLIP")) logoPath = "assets/img/bank_logo/phillip_logo.png";
+        else if (cleanBankName.includes("HATTHA")) logoPath = "assets/img/bank_logo/hattha_logo.png";
+        else if (cleanBankName.includes("E-MONEY") || cleanBankName.includes("EMONEY")) logoPath = "assets/img/bank_logo/emoney_logo.png";
 
         if (logoPath) {
             logo.src = logoPath;
