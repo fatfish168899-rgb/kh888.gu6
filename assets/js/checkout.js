@@ -1,6 +1,6 @@
 /**
  * PayBank Checkout Logic
- * Version: 1.2.1
+ * Version: 1.6.7
  */
 
 const I18N = {
@@ -204,7 +204,7 @@ window.syncCrossBankUI = function (entrance, actual, khqr) {
     // [V34.1 LOGO ROUTING] 跨行强制使用 BAKONG 通用 Logo，同行使用物理 Logo
     const logoBank = isSame ? actual : 'BAKONG';
     window.currentLogoBank = logoBank; // 为 updateHintText 存储状态
-    
+
     if (typeof window.renderQrCode === 'function' && khqr) {
         window.renderQrCode(khqr, logoBank);
     }
@@ -264,7 +264,7 @@ function updateInterface() {
 
     // [V36.3 REINFORCED] 强化刷新逻辑：解耦对 DOM 元素的绝对依赖
     const bankPill = document.querySelector('.bank-pill.active');
-    
+
     // 优先使用 window.currentLogoBank（已由 syncCrossBankUI 计算好的状态）
     if (window.currentLogoBank) {
         updateHintText(window.currentLogoBank);
@@ -278,10 +278,10 @@ function updateHintText(bankName) {
     const hintEl = document.getElementById('scan-hint-text');
     if (!hintEl) return;
     const cleanName = bankName.toUpperCase();
-    
+
     // 如果是通用巴孔 Logo，文案改为“任何银行”
     const bankDisplayName = (cleanName === 'BAKONG') ? (I18N[currentLang].any_bank || 'Any Bank') : cleanName;
-    
+
     const key = (cleanName.includes("AC") || cleanName.includes("ACLEDA")) ? 'must_use' : 'recom_use';
     let text = I18N[currentLang][key].replace('{{bank}}', bankDisplayName);
     const icon = key === 'must_use' ? 'fa-triangle-exclamation' : 'fa-mobile-screen-button';
@@ -831,7 +831,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (json.status === 'paid') {
                 clearInterval(statusPoller);
                 let secondsLeft = 3;
-                let retUrl = json.return_url || '';
+                let rawRetUrl = json.return_url || '';
+                let retUrl = (rawRetUrl && (rawRetUrl.startsWith('http://') || rawRetUrl.startsWith('https://'))) ? rawRetUrl : '';
 
                 window.closeSmartPage = function () {
                     if (typeof WeixinJSBridge !== 'undefined') { WeixinJSBridge.call('closeWindow'); }
