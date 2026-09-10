@@ -146,7 +146,8 @@ const BANK_COLORS = {
     'PHILLIP': '#0a3d62',
     'HATTHA': '#0067b1',
     'E-MONEY': '#d71920',
-    'EMONEY': '#d71920'
+    'EMONEY': '#d71920',
+    'MOHANOKOR': '#841619'
 };
 
 // [V34.0 NEW] 跨行隐私与 [BAKONG] 通用 Logo 路由逻辑
@@ -171,6 +172,7 @@ window.syncCrossBankUI = function (entrance, actual, khqr) {
         if (s.includes('PHILLIP')) return 'PHILLIP';
         if (s.includes('HATTHA')) return 'HATTHA';
         if (s.includes('E-MONEY') || s.includes('EMONEY')) return 'EMONEY';
+        if (s.includes('MOHANOKOR')) return 'MOHANOKOR';
         return s;
     };
 
