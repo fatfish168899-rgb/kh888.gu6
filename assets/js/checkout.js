@@ -491,6 +491,7 @@ window.renderQrCode = function (qrData, bankName) {
         else if (cleanBankName.includes("PHILLIP")) logoPath = "assets/img/bank_logo/phillip_logo.png";
         else if (cleanBankName.includes("HATTHA")) logoPath = "assets/img/bank_logo/hattha_logo.png";
         else if (cleanBankName.includes("E-MONEY") || cleanBankName.includes("EMONEY")) logoPath = "assets/img/bank_logo/emoney_logo.png";
+        else if (cleanBankName.includes("MOHANOKOR")) logoPath = "assets/img/bank_logo/Mohanokor_logo.png";
 
         if (logoPath) {
             logo.src = logoPath;
@@ -581,6 +582,7 @@ async function generateFancyCanvas(qrSource, bankName, orderNo) {
         else if (cleanBankName.includes("PHILLIP")) logoPath = "assets/img/bank_logo/phillip_logo.png";
         else if (cleanBankName.includes("HATTHA")) logoPath = "assets/img/bank_logo/hattha_logo.png";
         else if (cleanBankName.includes("E-MONEY") || cleanBankName.includes("EMONEY")) logoPath = "assets/img/bank_logo/emoney_logo.png";
+        else if (cleanBankName.includes("MOHANOKOR")) logoPath = "assets/img/bank_logo/Mohanokor_logo.png";
 
         if (logoPath) {
             logo.src = logoPath;
